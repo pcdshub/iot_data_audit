@@ -20,6 +20,8 @@ This application generates a report for the quarterly DoE IoT Data Audit. It doe
 
 Instructions
 ------------
+This program requires a csv download of the CIO FISMA Metrics Data Call Template. Alternatively, you can use google_sheet.csv located in my folder ``~/git/iot_data_audit/iot_data_audit/google_sheets.csv``. Be sure to put this file in /iot_data_audit/iot_data_audit/.::
+
 To run this program navigate to the top-level directory ('iot_data_audit') and run ``./iot_data_audit.sh``.::
 
 To view the generated DoE report check in the top-level directory for a file called ``iot_asset_inventory.xlsx``.::

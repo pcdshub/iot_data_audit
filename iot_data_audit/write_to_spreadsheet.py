@@ -1,5 +1,5 @@
 ''' 
-    Gets filtered, alive/active devices from netconfig data dump and merge with relevant 
+    Gets all filtered, alive/active devices from netconfig data dump and merge with relevant 
     data from google sheets. Insert final dataframe into IoT Asset Inventory Template 
     spreadsheet and generate the report.
 '''
@@ -60,15 +60,15 @@ if __name__ == "__main__":
     # do left outer join on df and df_google_sheets
     df_final = df.merge(df_google_sheet, on='device_name', how='left')
 
-    # put all data in 'support channels' column in quotes
+    # put all data in 'support channels' column in quotes (they are URLs that sometimes have commas)
     df_final['support_channels'] = [
         '\'' + str(value) + '\'' for value in df_final['support_channels']]
 
-    # rearrange columns in df_final to match columns in iot_template.xlsx
+    # rearrange columns in df_final to match columns in the DoE Asset Inventory template
     df_final = df_final.loc[:, ['system_owner', 'system_name', 'device_name', 'relevant_specs', 'unique_identifier', 'function', 'criticality', 'location', 'hva_system_association', 'manufacturer', 'manufacturer_contact', 'vendor',
                                 'vendor_contact', 'support_channels', 'software_version_applied', 'firmware_version_applied', 'patch_applied', 'ip', 'port', 'integrations', 'api', 'inter_comm_protocol', 'applied_security_controls', 'applied_security_comments']]
 
-    # add missing columns (from DoE Asset Inventory template) to df_final
+    # add more columns from DoE Asset Inventory template (these columns don't appear in netconfig or google_sheets)
     df_final.insert(3, 'device_make', '')
     df_final.insert(4, 'device_model', '')
     df_final.insert(9, 'critical_functions_documented', '')
@@ -91,7 +91,7 @@ if __name__ == "__main__":
         for col_idx, value in enumerate(row, 4):
             ws.cell(row=row_idx, column=col_idx, value=value)
 
+    # saved to top-level directory
     wb.save('../iot_asset_inventory.xlsx')
 
-    # for testing
-    print(df_final.head(5))
+    print(df_final)

@@ -25,7 +25,7 @@ This program requires two files:
 1. A csv download of the CIO FISMA Metrics Data Call Template. You can find a copy (named ``google_sheet.csv``) located in my folder ``~/git/iot_data_audit/iot_data_audit/google_sheets.csv``. Be sure to put this file in ``/iot_data_audit/iot_data_audit/``.
 2. The DoE Asset Inventory Template renamed as ``iot_template.xlsx``. You can find a copy located in my folder ``~/git/iot_data_audit/iot_data_audit/iot_data_audit.xlsx``. Be sure to put this file in ``/iot_data_audit/iot_data_audit/``.
 
-To run this program navigate to the top-level directory ``iot_data_audit`` and run ``./iot_data_audit.sh``.
+To run this program navigate to the top-level directory ``iot_data_audit`` and run ``./iot_data_audit.sh``. This app takes about 3-4 minutes to run and should ask for the user's password only once.
 
 To view the generated DoE report check in the top-level directory for a file called ``iot_asset_inventory.xlsx``.
 

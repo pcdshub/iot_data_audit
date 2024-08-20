@@ -10,7 +10,7 @@ then
     kinit
 fi
 
-echo -e "\nThis application generates an IoT Asset Inventory spreadsheet based on all \nvalid, ping-able devices on the network. Kerebos tickets have been activated \nto minimize typing in passwords to access hutch computers.\n"
+echo -e "\nThis application generates a report for the quarterly DoE IoT data audit. The \nreport is based on all valid, ping-able devices on the network. Kerebos tickets \nhave been activated to minimize typing in passwords to access hutch computers.\n"
 
 # Start program on rhel7
 ssh $CURR_SERVER "cd ${USER_PATH} && source /reg/g/pcds/engineering_tools/latest-released/scripts/pcds_conda && python3 filter_hostnames.py"

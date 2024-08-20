@@ -1,0 +1,56 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools>=45",
+    "setuptools_scm[toml]>=6.2"
+]
+
+[project]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+]
+
+description = "This application generates a report for the quarterly DoE IoT Data Audit."
+dynamic = [ "version", "readme", "dependencies", "optional-dependencies",]
+keywords = []
+name = "iot_data_audit"
+requires-python = ">=3.9"
+
+[options]
+zip_safe = false
+include_package_data = true
+
+[tool.setuptools.packages.find]
+where = [ ".",]
+include = [ "iot_data_audit*",]
+namespaces = false
+
+[[project.authors]]
+name = "SLAC National Accelerator Laboratory"
+
+[project.license]
+file = "LICENSE"
+
+[project.scripts]
+"iot_data_audit" = "iot_data_audit.bin.main:main"
+
+[tool.setuptools_scm]
+write_to = "iot_data_audit/_version.py"
+
+[tool.setuptools.dynamic.readme]
+file = "README.rst"
+
+[tool.setuptools.dynamic.dependencies]
+file = [ "requirements.txt",]
+
+[tool.setuptools.dynamic.optional-dependencies.test]
+file = "dev-requirements.txt"
+
+[tool.setuptools.dynamic.optional-dependencies.doc]
+file = "docs-requirements.txt"
+
+[tool.pytest.ini_options]
+addopts = "--cov=."
+

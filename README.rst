@@ -1,0 +1,43 @@
+===============================
+iot_data_audit
+===============================
+
+.. image:: https://github.com/pcdshub/iot_data_audit/actions/workflows/standard.yml/badge.svg
+        :target: https://github.com/pcdshub/iot_data_audit/actions/workflows/standard.yml
+
+.. image:: https://img.shields.io/pypi/v/iot_data_audit.svg
+        :target: https://pypi.python.org/pypi/iot_data_audit
+
+
+`Documentation <https://pcdshub.github.io/iot_data_audit/>`_
+
+This application generates a report for the quarterly DoE IoT Data Audit. It does this with the following steps:
+
+1. Gets a data dump from netconfig
+2. Takes filters from google sheets and applies them to the dataset.
+3. Pings hostnames in the filtered dataset and generates a list of active/alive devices.
+4. Takes the netconfig dataset containing all filtered and pingable devices and merges the relevant data from google sheets to generate an IoT Asset Inventory spreadsheet.
+
+Instructions
+------------
+To run this program navigate to the top-level directory ('iot_data_audit') and run ``./iot_data_audit.sh``.::
+
+To view the generated DoE report check in the top-level directory for a file called ``iot_asset_inventory.xlsx``.::
+
+Requirements
+------------
+
+* Python 3.9+
+
+Installation
+------------
+
+::
+
+  $ pip install .
+
+Running the Tests
+-----------------
+::
+
+  $ pytest -v

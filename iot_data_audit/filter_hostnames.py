@@ -12,7 +12,6 @@
 import os
 import re
 import pandas as pd
-from IPython.display import display
 from async_pinger import ping_all_hosts
 
 

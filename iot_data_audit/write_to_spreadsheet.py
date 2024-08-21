@@ -1,17 +1,12 @@
-''' 
-    Gets all filtered, alive/active devices from netconfig data dump and merge with relevant 
-    data from google sheets. Insert final dataframe into IoT Asset Inventory Template 
+'''
+    Gets all filtered, alive/active devices from netconfig data dump and merge with relevant
+    data from google sheets. Insert final dataframe into IoT Asset Inventory Template
     spreadsheet and generate the report.
 '''
 
-import os
-import re
-import pandas as pd
 import openpyxl
-from openpyxl import load_workbook
+import pandas as pd
 from openpyxl.utils.dataframe import dataframe_to_rows
-
-from IPython.display import display
 
 if __name__ == "__main__":
 

@@ -1,19 +1,19 @@
 '''
-    Gets a data dump from netconfig of all hostnames in the database. Applies filters 
-    from Google spreadsheet 
-    (https://docs.google.com/spreadsheets/d/1opCKXzz78LQk2uB_hAAgOEGlbFLrlMm6X118zeh_AeA/edit?gid=389932230#gid=389932230) 
+    Gets a data dump from netconfig of all hostnames in the database. Applies filters
+    from Google spreadsheet
+    (https://docs.google.com/spreadsheets/d/1opCKXzz78LQk2uB_hAAgOEGlbFLrlMm6X118zeh_AeA/edit?gid=389932230#gid=389932230)
     and outputs hostnames to a csv file that will be used to ping devices across the network.
 
-    NOTE: Some fields from netconfig, such as 'DHCP parameters' and 'Puppet Classes', 
-    have been omitted. They are not used in the Google spreadsheet filters and do not 
+    NOTE: Some fields from netconfig, such as 'DHCP parameters' and 'Puppet Classes',
+    have been omitted. They are not used in the Google spreadsheet filters and do not
     currently appear in the DoE IoT Asset Inventory template.
 '''
 
 import os
 import re
+
 import pandas as pd
 from async_pinger import ping_all_hosts
-
 
 if __name__ == "__main__":
 
@@ -81,11 +81,11 @@ if __name__ == "__main__":
 
     # filter the 'ip' column
     df = df[~df["ip"].str.contains(
-        "\d+\.\d+\.(?:40|164|57|152|156|40|67|26|59|27|24|23|25|21|22)\.\d+")]
+        r"\d+\.\d+\.(?:40|164|57|152|156|40|67|26|59|27|24|23|25|21|22)\.\d+")]
 
     # filter the 'description' column
     df = df[~df['description'].str.contains(
-        '(?i)i[\s-]*p[\s-]*m[\s-]*i|(?i)Sup[\s]*ermicr?o|(?i)Oracle|(?i)dell|(?i)digi|(?i)Cia[\s]*ra|ANA Interface|(?i)daq|(?i)moxa|(?i)laptop|(?i)mac[\s]*book|(?i)console|(?i)mforce|ICS|Lap[\s]top|Framework 13 Ryzen')]
+        r"(?i)i[\s-]*p[\s-]*m[\s-]*i|(?i)Sup[\s]*ermicr?o|(?i)Oracle|(?i)dell|(?i)digi|(?i)Cia[\s]*ra|ANA Interface|(?i)daq|(?i)moxa|(?i)laptop|(?i)mac[\s]*book|(?i)console|(?i)mforce|ICS|Lap[\s]top|Framework 13 Ryzen")]
 
     # output entire dataframe to csv file
     df.to_csv("filtered_all.csv", index=False)

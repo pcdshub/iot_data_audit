@@ -15,8 +15,8 @@ echo -e "\nThis application generates a report for the quarterly DoE IoT data au
 # Start program on rhel7
 ssh $CURR_SERVER "cd ${USER_PATH} && source /reg/g/pcds/engineering_tools/latest-released/scripts/pcds_conda && python3 filter_hostnames.py"
 
-# Ping hostnames from inactive_hostnames.csv on every hutch node. If the device pings, 
-# delete it from the list of inactive hostnames. The final list will contain all 
+# Ping hostnames from inactive_hostnames.csv on every hutch node. If the device pings,
+# delete it from the list of inactive hostnames. The final list will contain all
 # inactive hostnames on the network.
 
 declare -a SERVERS_ARR=("psbuild-rhel7" "psdev01" "kfe-console" "las-console" "lfe-console" "mec-control" "mfx-console" "rix-console" "tmo-console" "xcs-console" "xpp-control")

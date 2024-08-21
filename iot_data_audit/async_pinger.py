@@ -2,7 +2,6 @@
 
 import asyncio
 
-
 inactive = []
 
 
@@ -27,7 +26,7 @@ def ping_all_hosts(filename):
     f1 = open(filename, 'r+')
     lines = f1.readline().split(', ')
     hostnames = [host.replace('\'', '') for host in lines]
-    
+
     f1.close()
 
     loop = asyncio.get_event_loop()             # create an async loop
@@ -40,7 +39,8 @@ def ping_all_hosts(filename):
     tasks = asyncio.gather(*tasks)              # assemble the tasks
     loop.run_until_complete(tasks)              # run tasks all at once
 
-    open('inactive_hostnames.csv', 'w+').close()    # delete file contents to avoid writing duplicates
+    # delete file contents to avoid writing duplicates
+    open('inactive_hostnames.csv', 'w+').close()
 
     with open('inactive_hostnames.csv', 'w') as f2:
         for device in inactive[:len(inactive)-2]:

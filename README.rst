@@ -16,7 +16,7 @@ This application generates a report for the quarterly DoE IoT Data Audit. It doe
 1. Gets a data dump from netconfig
 2. Takes filters from google sheets and applies them to the dataset.
 3. Pings hostnames in the filtered dataset and generates a list of active/alive devices.
-4. Takes the netconfig dataset containing all filtered and pingable devices and merges the relevant data from google sheets to generate an IoT Asset Inventory spreadsheet.
+4. Takes the netconfig dataset containing all filtered and active/alive devices and merges the relevant data from google sheets to generate an IoT Asset Inventory spreadsheet.
 
 Instructions
 ------------

@@ -22,8 +22,8 @@ Instructions
 ------------
 This program requires two files. The files contain metadata for all active IoT devices (so I omitted them from this public repo).
 
-1. A csv download of the CIO FISMA Metrics Data Call Template. A copy of this file is located in my folder at ``~/git/iot_data_audit/iot_data_audit/google_sheets.csv``. Be sure to put this file in ``/iot_data_audit/iot_data_audit/``.
-2. The DoE Asset Inventory Template renamed as ``iot_template.xlsx``. A copy of this file is located at ``~/git/iot_data_audit/iot_data_audit/iot_data_audit.xlsx``. Be sure to put this file in ``/iot_data_audit/iot_data_audit/``.
+1. A csv download of the CIO FISMA Metrics Data Call Template. A copy of this file is located in my folder at ``~/git/iot_data_audit/iot_data_audit/google_sheets.csv``. This file should be placed in ``/iot_data_audit/iot_data_audit/``.
+2. The DoE Asset Inventory Template renamed as ``iot_template.xlsx``. A copy of this file is located at ``~/git/iot_data_audit/iot_data_audit/iot_data_audit.xlsx``. This file should be placed in ``/iot_data_audit/iot_data_audit/``.
 
 To run this program navigate to the top-level directory ``iot_data_audit`` and run ``./iot_data_audit.sh``. This app takes about 3-4 minutes to run and should ask for the user's password only once.
 

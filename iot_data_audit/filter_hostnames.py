@@ -1,8 +1,7 @@
 '''
     Gets a data dump from netconfig of all hostnames in the database. Applies filters
-    from Google spreadsheet
-    (https://docs.google.com/spreadsheets/d/1opCKXzz78LQk2uB_hAAgOEGlbFLrlMm6X118zeh_AeA/edit?gid=389932230#gid=389932230)
-    and outputs hostnames to a csv file that will be used to ping devices across the network.
+    from Google spreadsheet (internal document) and outputs hostnames to a csv file 
+    that will be used to ping devices across the network.
 
     NOTE: Some fields from netconfig, such as 'DHCP parameters' and 'Puppet Classes',
     have been omitted. They are not used in the Google spreadsheet filters and do not

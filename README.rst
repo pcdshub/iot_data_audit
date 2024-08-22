@@ -27,7 +27,7 @@ This program requires two files. The files contain metadata for all active IoT d
 
 To run this program navigate to the top-level directory ``iot_data_audit`` and run ``./iot_data_audit.sh``. This app takes about 3-4 minutes to run and should ask for the user's password only once.
 
-To view the generated DoE report check in the top-level directory for a file called ``iot_asset_inventory.xlsx``.
+The generated DoE report is output to the top-level directory as an Excel file called ``iot_asset_inventory.xlsx``.
 
 Requirements
 ------------

@@ -20,7 +20,7 @@ This application generates a report for the quarterly DoE IoT Data Audit. It doe
 
 Instructions
 ------------
-This program requires two files:
+This program requires two files. The files contain metadata for all active IoT devices (so were omitted from this public repo).
 
 1. A csv download of the CIO FISMA Metrics Data Call Template. You can find a copy (named ``google_sheet.csv``) located in my folder ``~/git/iot_data_audit/iot_data_audit/google_sheets.csv``. Be sure to put this file in ``/iot_data_audit/iot_data_audit/``.
 2. The DoE Asset Inventory Template renamed as ``iot_template.xlsx``. You can find a copy located in my folder ``~/git/iot_data_audit/iot_data_audit/iot_data_audit.xlsx``. Be sure to put this file in ``/iot_data_audit/iot_data_audit/``.

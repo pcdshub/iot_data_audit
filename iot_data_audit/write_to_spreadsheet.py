@@ -8,12 +8,12 @@ import openpyxl
 import pandas as pd
 from openpyxl.utils.dataframe import dataframe_to_rows
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     # ingest the csv containing all the filtered, pingable devices from netconfig
     df = pd.read_csv('filtered_all.csv')
 
-    f1 = open("inactive_hostnames.csv", 'r+')
+    f1 = open('inactive_hostnames.csv', 'r+')
     lines = f1.readline().split(', ')
     inactive = [host.replace('\'', '') for host in lines]
 

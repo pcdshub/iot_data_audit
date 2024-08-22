@@ -14,7 +14,7 @@ import re
 import pandas as pd
 from async_pinger import ping_all_hosts
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
     # Get the netconfig data dump and format it into a dictionary for pandas dataframe.
     os.system("netconfig search '*' > netconfig_data_dump.txt")
@@ -79,15 +79,15 @@ if __name__ == "__main__":
     df = df.iloc[1:]
 
     # filter the 'ip' column
-    df = df[~df["ip"].str.contains(
-        r"\d+\.\d+\.(?:40|164|57|152|156|40|67|26|59|27|24|23|25|21|22)\.\d+")]
+    df = df[~df['ip'].str.contains(
+        r'\d+\.\d+\.(?:40|164|57|152|156|40|67|26|59|27|24|23|25|21|22)\.\d+')]
 
     # filter the 'description' column
     df = df[~df['description'].str.contains(
-        r"(?i)i[\s-]*p[\s-]*m[\s-]*i|(?i)Sup[\s]*ermicr?o|(?i)Oracle|(?i)dell|(?i)digi|(?i)Cia[\s]*ra|ANA Interface|(?i)daq|(?i)moxa|(?i)laptop|(?i)mac[\s]*book|(?i)console|(?i)mforce|ICS|Lap[\s]top|Framework 13 Ryzen")]
+        r'(?i)i[\s-]*p[\s-]*m[\s-]*i|(?i)Sup[\s]*ermicr?o|(?i)Oracle|(?i)dell|(?i)digi|(?i)Cia[\s]*ra|ANA Interface|(?i)daq|(?i)moxa|(?i)laptop|(?i)mac[\s]*book|(?i)console|(?i)mforce|ICS|Lap[\s]top|Framework 13 Ryzen')]
 
     # output entire dataframe to csv file
-    df.to_csv("filtered_all.csv", index=False)
+    df.to_csv('filtered_all.csv', index=False)
 
     # Ping all filtered hostnames and get a list of inactive devices.
     filtered_hostnames = df.iloc[:, 0].tolist()  # get filtered hostnames
